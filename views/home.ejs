@@ -1,0 +1,30 @@
+<%-include('partials/header')-%>
+
+    <h1><%-title%></h1>
+   
+
+    <% if(content.length > 100) { %>
+    <p> <%= content.substring(100,0) + "..." %> </p>
+    <% } else {  %>
+           <p> <%= content %> </p>
+        <%   } %>
+
+
+    <% posts.forEach(post =>{ %>
+        <!-- <div class="well"> -->
+            <h3>
+                <%-post.title%>
+            </h3>
+            <% if(post.content.length > 50) { %>
+                <p> <%= post.content.substring(50,0) + "..." %>
+                    <a href="/posts/<%-post.title%>">Read more </a>
+                </p>
+                <% } else {  %>
+                       <p> <%= post.content %> </p>
+                    <%   } %>
+        <!-- </dixv> -->
+    <% }) %> 
+
+    
+
+<%-include('partials/footer')-%>
